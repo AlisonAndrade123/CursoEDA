@@ -19,6 +19,37 @@ public class ListaEncadeada<T> {
         this.tamanho++;
     }
 
+    public void adicionaInicio(T elemento){
+        if (this.tamanho == 0){
+            No<T> novoNo = new No<>(elemento);
+            this.inicio = novoNo;
+            this.ultimo = novoNo;
+            this.tamanho++;
+        } else {
+            No<T> novoNo = new No<>(elemento, this.inicio);
+            this.inicio = novoNo;
+            this.tamanho++;
+        }
+    }
+
+    public void aciciona(int posicao, T elemento){
+        if (posicao < 0 || posicao > this.tamanho){
+            throw new IllegalArgumentException("Posição inválida.");
+        }
+
+        if (posicao == 0){
+            this.adicionaInicio(elemento);
+        } else if (posicao == this.tamanho){
+            this.adiciona(elemento);
+        } else {
+            No<T> noAnterior = this.buscaNo(posicao);
+            No<T> proximoNo = noAnterior.getProximo();
+            No<T> novoNo = new No<>(elemento, proximoNo);
+            noAnterior.setProximo(novoNo);
+            this.tamanho++;
+        }
+    }
+
     public int getTamanho() {
         return this.tamanho;
     }
