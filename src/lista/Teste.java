@@ -6,7 +6,28 @@ public class Teste {
         //testesIniciais();
         //adicionaInicio();
         //adicionaPosicao();
-        removeInicio();
+        //removeInicio();
+        removeFinal();
+    }
+
+    public static void removeFinal(){
+        ListaEncadeada<Integer> lista = new ListaEncadeada<>();
+
+        //lista.removeFinal();
+
+        lista.adiciona(1);
+        lista.adiciona(2);
+        lista.adiciona(3);
+
+        System.out.println("Elemento removido: " + lista.removeFinal());
+        System.out.println("Lista: " + lista);
+
+        System.out.println("Elemento removido: " + lista.removeFinal());
+        System.out.println("Lista: " + lista);
+
+        System.out.println("Elemento removido: " + lista.removeFinal());
+        System.out.println("Lista: " + lista);
+
     }
 
     public static void removeInicio(){
